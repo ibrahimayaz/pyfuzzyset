@@ -1,0 +1,18 @@
+Change Log
+==========
+
+0.0.1 (31/01/2021)
+------------------
+- First release
+
+0.0.2 (01/02/2021)
+------------------
+- Second release
+
+0.0.3 (17/02/2021)
+------------------
+- Change directory
+
+0.0.4 (27/02/2021)
+------------------
+- IFCM code optimization and Objective Function Added
