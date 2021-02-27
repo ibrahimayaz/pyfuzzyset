@@ -229,6 +229,7 @@ class IFCM:
                 result+=(U[j,i]**self.m)*self.Dist(Z[j],V[i])
         return result
 
+
 class CVIndex:
     """
     Cluster Validity Index (Küme Geçerlilik İndeksi)
