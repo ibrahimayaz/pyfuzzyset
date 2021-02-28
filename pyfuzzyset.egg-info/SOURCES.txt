@@ -1,9 +1,13 @@
 CHANGELOG.txt
 LICENCE.txt
 MANIFEST.in
-README.txt
+README.md
+REQUIREMENTS.txt
+VERSION.txt
 setup.py
-PyFuzzySet/Cluster.py
+pyfuzzyset/Cluster.py
+pyfuzzyset/ClusterValidity.py
+pyfuzzyset/__init__.py
 pyfuzzyset.egg-info/PKG-INFO
 pyfuzzyset.egg-info/SOURCES.txt
 pyfuzzyset.egg-info/dependency_links.txt

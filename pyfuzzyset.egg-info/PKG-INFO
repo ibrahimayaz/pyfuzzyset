@@ -1,11 +1,11 @@
-Metadata-Version: 1.1
+Metadata-Version: 2.1
 Name: pyfuzzyset
-Version: 0.0.4
+Version: 0.0.6
 Summary: Includes Fuzzy Set Algorithms, Intuitionistic Fuzzy Set Algorithms and Fuzzy Cluster Validity Indexes
-Home-page: https://github.com/ibrahimayaz/PyFuzzySet
+Home-page: https://github.com/ibrahimayaz/pyfuzzyset
 Author: İbrahim AYAZ, Fatih KUTLU
 Author-email: ayazibrahim13@gmail.com
-License: MIT
+License: MIT License
 Description: Includes Fuzzy Set Algorithms, Intuitionistic Fuzzy Set Algorithms and Fuzzy Cluster Validity Indexes
         
         Change Log
@@ -23,14 +23,21 @@ Description: Includes Fuzzy Set Algorithms, Intuitionistic Fuzzy Set Algorithms 
         ------------------
         - Change directory
         
-        0.0.4 (27/02/2021)
+        0.0.5 (28/02/2021)
         ------------------
-        - IFCM code optimization and Objective Function Added
+        - IFCM code optimization and Objective Function Added (Bug Fixed)
+        
+        0.0.6 (28/02/2021)
+        ------------------
+        - FCM code optimization and Objective Function Added (Bug Fixed)
         
 Platform: UNKNOWN
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Intended Audience :: Education
-Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: OS Independent
 Classifier: License :: OSI Approved :: MIT License
-Classifier: Programming Language :: Python :: 2.7
-Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown

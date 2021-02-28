@@ -13,6 +13,10 @@ Change Log
 ------------------
 - Change directory
 
-0.0.4 (27/02/2021)
+0.0.5 (28/02/2021)
 ------------------
-- IFCM code optimization and Objective Function Added
+- IFCM code optimization and Objective Function Added (Bug Fixed)
+
+0.0.6 (28/02/2021)
+------------------
+- FCM code optimization and Objective Function Added (Bug Fixed)
