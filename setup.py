@@ -1,9 +1,8 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import os
 
-
-REQUIREMENTS = open("REQUIREMENTS.txt").read().split()
-VERSION = open("VERSION.txt").read()
+directory=os.path.dirname(__file__)
+VERSION = open(os.path.join(directory, 'pyfuzzyset', 'VERSION.txt')).read()
 READ_ME = open('README.md').read() + '\n\n' + open('CHANGELOG.txt').read()
 
 # See note below for more information about classifiers
@@ -12,6 +11,8 @@ classifiers = [
   'Intended Audience :: Education',
   "Operating System :: OS Independent",
   'License :: OSI Approved :: MIT License',
+  'Programming Language :: Python :: 2.7',
+  'Programming Language :: Python :: 3',
   'Programming Language :: Python :: 3.7',
   'Programming Language :: Python :: 3.8',
   'Programming Language :: Python :: 3.9',
@@ -26,10 +27,9 @@ setup(
   url='https://github.com/ibrahimayaz/pyfuzzyset',  # the URL of your package's home page e.g. github link
   author='İbrahim AYAZ, Fatih KUTLU',
   author_email='ayazibrahim13@gmail.com',
-  license='MIT License', # note the American spelling
+  license='MIT', # note the American spelling
   classifiers=classifiers,
-  keywords='', # used when people are searching for a module, keywords separated with a space
-  packages='',
-  install_requires=REQUIREMENTS,
-  python_requires=">=3.7",
+  keywords='fuzzy set clustering intuitionistic sezgisel bulanık küme', # used when people are searching for a module, keywords separated with a space
+  packages=find_packages(),
+  install_requires=[''],
 )
