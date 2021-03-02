@@ -1,1 +1,1 @@
-PyFuzzySet
+pyfuzzyset

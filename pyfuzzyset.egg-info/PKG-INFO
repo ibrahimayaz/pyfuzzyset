@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pyfuzzyset
-Version: 0.0.10
+Version: 0.0.12
 Summary: Includes Fuzzy Set Algorithms, Intuitionistic Fuzzy Set Algorithms and Fuzzy Cluster Validity Indexes
 Home-page: https://github.com/ibrahimayaz/pyfuzzyset
 Author: İbrahim AYAZ, Fatih KUTLU
@@ -70,7 +70,15 @@ Description:
         
         0.0.9 (28/02/2021)
         ------------------
-        - FCM code optimization and Objective Function Added (Bug Fixed)
+        - IFCM, FCM code optimization and Objective Function Added (Bug Fixed)
+        
+        0.0.11 (28/02/2021)
+        ------------------
+        - Bug Fixed
+        
+        0.0.12 (03/03/2021)
+        ------------------
+        - Bug Fixed
         
 Keywords: fuzzy set clustering intuitionistic sezgisel bulanık küme
 Platform: UNKNOWN

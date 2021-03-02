@@ -27,65 +27,65 @@ class FCM:
         self.eps = eps
         self.maxIter = maxIter
 
-    def InitialMembership_Creation(self, data):
-        U = np.random.randint(100, 200, size=(len(data), self.c))
+    def InitialMembership_Creation(self):
+        U = np.random.randint(100, 200, size=(len(self.data), self.c))
         return U/U.sum(axis=1, keepdims=True)
 
-    def V(self, U, data):
+    def V(self, U):
         U_m = U**self.m
         U_m = U_m/U_m.sum(axis=0, keepdims=True)
-        return np.matmul(U_m.T, data)
+        return np.matmul(U_m.T, self.data)
 
-    def U(self, V_old, data):
-        U_new = np.zeros(shape=(data.shape[0], self.c))
+    def U(self, V_old):
+        U_new = np.zeros(shape=(self.data.shape[0], self.c))
         for i in range(U_new.shape[0]):
             for j in range(U_new.shape[1]):
-                U_new[i][j] = 1./np.linalg.norm(data[i]-V_old[j])
+                U_new[i][j] = 1./np.linalg.norm(self.data[i]-V_old[j])
 
         U_new = U_new**(2./(self.m-1))
         U_new = U_new/U_new.sum(axis=1, keepdims=True)
         return U_new
 
-    def SSE(self, U, V, data):
+    def SSE(self, U, V):
         U_m = U**self.m
         result = 0
         for j in range(self.c):
-            for i in range(data.shape[0]):
-                result += U_m[i][j] * np.linalg.norm(data[i]-V[j])**2
+            for i in range(self.data.shape[0]):
+                result += U_m[i][j] * np.linalg.norm(self.data[i]-V[j])**2
         return result
 
     def Cluster(self, data):
-        U = self.InitialMembership_Creation(data)
+        self.data=data
+        U = self.InitialMembership_Creation()
         print("INFO: The initial membership matrix has been created.")
-        V = np.zeros((self.c, data.shape[0]))
-        error_old = float(self.SSE(U, V, data))
+        V =  np.random.randint(low=-4, high=4, size=(self.c, self.data.shape[1]))
+        error_old = self.SSE(U, V)
         iteration = 1
         loss_values = []
+        print("INFO: Please wait, clusters are segmented...")
         while iteration <= self.maxIter:
-            V = self.V(U, data)
-            U = self.U(V, data)
-            error_new = float(self.SSE(U, V, data))
+            V = self.V(U)
+            U = self.U(V)
+            error_new = self.SSE(U, V)
             loss = error_old - error_new
             loss_values.append(loss)
             if loss < self.eps:
                 break
             iteration += 1
             error_old = error_new
-        print("INFO: Clustering Complete ! ")
+        print("INFO: Clustering Complete !")
         return U, V, loss_values
 
-    def J(self, U, V, data):
+    def J(self, U, V):
         """
         Objective Function (Amaç Fonksiyonu)
         """
         result=0
         for i in range(len(U)):
             for j in range(self.c):
-                result+=(U[i,j]**self.m)*self.Dist(data[i]-V[j])
+                result+=(U[i,j]**self.m)*np.linalg.norm(self.data[i], V[j])**2
         return result
 
-    def Dist(self, V, data):
-        return np.sqrt((data-V)**2)
 
 class IFCM:
     """
@@ -119,16 +119,18 @@ class IFCM:
         self.lam = lam
 
     def Cluster(self, data):
-        U = self.InitialMembership_Creation(data)
+        self.data=data
+        U = self.InitialMembership_Creation()
         print("INFO: The initial membership matrix has been created.")
         V = [(0,0,0) for i in range(self.c)]
         iteration=1
-        Z,u_z,n_z,p_z=self.Z(data)
+        Z,u_z,n_z,p_z=self.Z()
         loss_values=[]
+        print("INFO: Please wait, clusters are segmented...")
         while iteration<=self.maxIter:          
             v_old=V
             V=self.V(U, u_z, n_z, p_z)
-            U=self.U(Z, V, data)
+            U=self.U(Z, V)
             v_new=V
             loss=self.Error_Calc(v_old, v_new)
             loss_values.append(loss)
@@ -138,26 +140,26 @@ class IFCM:
         print("INFO: Clustering Complete ! ")
         return U, V, Z, loss_values
 
-    def InitialMembership_Creation(self, data):
+    def InitialMembership_Creation(self):
         """
         Initial Membership Creation (Başlangıç Üyelik Matrisinin Oluşturulması)
         Üyelik matrisi rastgele oluşturulur. Oluşturulan matrisin her satırının toplamı 1 olacak şekilde ayarlanır.
         """
-        U = np.random.randint(100, 200, size=(len(data), self.c))
+        U = np.random.randint(100, 200, size=(len(self.data), self.c))
         return U/U.sum(axis=1, keepdims=True)
 
-    def U(self, Z, V, data):
+    def U(self, Z, V):
         """
         Membership Matrix (Üyelik Matrisi)
         """
-        U_yeni = np.zeros(shape=(data.shape[0], self.c))
-        for i in range(U_yeni.shape[0]):
-            for j in range(U_yeni.shape[1]):
-                U_yeni[i][j] = 1./self.Uzaklik(Z[i], V[j])
+        U_new = np.zeros(shape=(self.data.shape[0], self.c))
+        for i in range(U_new.shape[0]):
+            for j in range(U_new.shape[1]):
+                U_new[i][j] = 1./self.Dist(Z[i], V[j])
 
-        U_yeni = U_yeni**(2./(self.m-1))
-        U_yeni = U_yeni/U_yeni.sum(axis=1, keepdims=True)
-        return U_yeni
+        U_new = U_new**(2./(self.m-1))
+        U_new = U_new/U_new.sum(axis=1, keepdims=True)
+        return U_new
 
     def V(self, U, u_z, n_z, p_z):
         """
@@ -173,26 +175,26 @@ class IFCM:
 
         return list(v)
         
-    def Z(self, data):
+    def Z(self):
         """
         General Z Matrix (Genel Z Matrisi)
         Includes the degrees of Z's membership, non-membership and fuzziness
         Z'nin üye olma, üye olmama ve belirsizlik derecelerini içerir
         """
-        u=self.Z_Membership(data)
+        u=self.Z_Membership(self.data)
         n=self.Z_NonMembership(u)
         p=self.Z_Fuzziness(u,n)
         z=zip(u,n,p)
         return list(z), u, n, p
 
-    def Z_Membership(self, data):
+    def Z_Membership(self):
         """
         Z Membership Degree (Z'nin Üye Olma Derecesi)
         """
-        max_value=np.max(data)
-        min_value=np.min(data)
+        max_value=np.max(self.data)
+        min_value=np.min(self.data)
         u=[]
-        for x in data:
+        for x in self.data:
             u.append((x-min_value)/(max_value-min_value))
         return u
 

@@ -15,4 +15,12 @@ Change Log
 
 0.0.9 (28/02/2021)
 ------------------
-- FCM code optimization and Objective Function Added (Bug Fixed)
+- IFCM, FCM code optimization and Objective Function Added (Bug Fixed)
+
+0.0.11 (28/02/2021)
+------------------
+- Bug Fixed
+
+0.0.12 (03/03/2021)
+------------------
+- Bug Fixed

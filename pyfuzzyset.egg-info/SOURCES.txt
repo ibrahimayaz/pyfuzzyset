@@ -8,6 +8,10 @@ PyFuzzySet/Cluster.py
 PyFuzzySet/ClusterValidity.py
 PyFuzzySet/VERSION.txt
 PyFuzzySet/__init__.py
+pyfuzzyset/Cluster.py
+pyfuzzyset/ClusterValidity.py
+pyfuzzyset/VERSION.txt
+pyfuzzyset/__init__.py
 pyfuzzyset.egg-info/PKG-INFO
 pyfuzzyset.egg-info/SOURCES.txt
 pyfuzzyset.egg-info/dependency_links.txt
