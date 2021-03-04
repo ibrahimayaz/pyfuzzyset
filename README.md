@@ -1,40 +1,14 @@
+# pyfuzzyset
+For now it is only available for image segmentation.
 
-**Includes Fuzzy Set Algorithms, Intuitionistic Fuzzy Set Algorithms and Fuzzy Cluster Validity Indexes**
+- Intuitionistic Fuzzy Set Algorithms
+   - Intuitionistic Fuzzy C Means
+- Fuzzy Set Algorithms
+   - Fuzzy C Means
+- Cluster Validity Indexes
+   - Partition Coefficient
+   - Classification Entropy
+   - Modificated Partititon Coefficient
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-MIT License
-
-Copyright (c) 2021 İbrahim AYAZ
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-**********
-Installing
-**********
-
-To install the regular library without async support, just run the following command::
-
-  <p>python3 -m pip install -U pyfuzzyset</p>
-
-Requirements
-============
-
-- Python ≥3.7
+## Installing
+>python3 -m pip install -U pyfuzzyset
