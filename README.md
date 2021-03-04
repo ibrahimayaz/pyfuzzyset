@@ -1,11 +1,6 @@
 
 **Includes Fuzzy Set Algorithms, Intuitionistic Fuzzy Set Algorithms and Fuzzy Cluster Validity Indexes**
 
-.. image:: https://img.shields.io/badge/pypi-v4.0.1-blue.svg
-    :target: https://pypi.python.org/pypi/akinator.py/
-
-.. image:: https://img.shields.io/badge/python-%E2%89%A53.5.3-yellow.svg
-    :target: https://www.python.org/downloads/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -37,7 +32,7 @@ Installing
 
 To install the regular library without async support, just run the following command::
 
-  python3 -m pip install -U pyfuzzyset
+  <p>python3 -m pip install -U pyfuzzyset</p>
 
 Requirements
 ============
